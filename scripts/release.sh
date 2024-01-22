@@ -11,8 +11,6 @@ echo "New version: $new_version"
 # Build the project
 $(npm run build)
 
-# Publish the project
-$(npm publish --access public)
 
 # Commit the changes
 git add .
