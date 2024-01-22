@@ -2,8 +2,7 @@
   "name": "@taeo-hooks",
   "version": "1.0.0",
   "description": "taeo's custom hooks playgrounds",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/taetaeo/taeo-hooks.git"
