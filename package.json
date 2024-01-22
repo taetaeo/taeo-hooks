@@ -19,8 +19,9 @@
     "url": "https://github.com/taetaeo/taeo-hooks/issues"
   },
   "scripts": {
-    "build": "rm -rf ./dist && tsc",
-    "prepare": "npm run build"
+    "prepare": "tsc && npm run build",
+    "release": "sh ./scripts/release.sh",
+    "clean": "rm -rf ./dist"
   },
   "author": "taetaeo <ohtk1119@gmail.com>",
   "license": "ISC",
