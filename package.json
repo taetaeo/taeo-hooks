@@ -1,5 +1,5 @@
 {
-  "name": "@taeo-hooks",
+  "name": "taeo-hooks",
   "version": "1.0.0",
   "description": "taeo's custom hooks playgrounds",
   "main": "index.js",
