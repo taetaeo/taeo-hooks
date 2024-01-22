@@ -18,10 +18,23 @@
   "bugs": {
     "url": "https://github.com/taetaeo/taeo-hooks/issues"
   },
+  "exports": {
+    ".": {
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.umd.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./package.json": "./package.json",
+    "./dist/*": "./dist/*"
+  },
+  "files": [
+    "/dist"
+  ],
   "scripts": {
-    "build": "rm -rf ./dist && tsc",
     "prepare": "npm run build",
-    "release": "sh ./scripts/release.sh"
+    "build": "tsc && npm run build",
+    "release": "sh ./scripts/release.sh",
+    "clean": "rm -rf dist"
   },
   "author": "taetaeo <ohtk1119@gmail.com>",
   "license": "ISC",
