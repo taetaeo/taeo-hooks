@@ -1,6 +1,6 @@
 {
   "name": "taeo-hooks",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "taeo's custom hooks playgrounds",
   "main": "index.js",
   "repository": {
