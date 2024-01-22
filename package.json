@@ -1,6 +1,6 @@
 {
   "name": "taeo-hooks",
-  "version": "1.0.3",
+  "version": "1.0.2",
   "description": "taeo's custom hooks playgrounds",
   "main": "index.js",
   "repository": {
@@ -19,9 +19,9 @@
     "url": "https://github.com/taetaeo/taeo-hooks/issues"
   },
   "scripts": {
-    "prepare": "tsc && npm run build",
-    "release": "sh ./scripts/release.sh",
-    "clean": "rm -rf ./dist"
+    "build": "rm -rf ./dist && tsc",
+    "prepare": "npm run build",
+    "release": "sh ./scripts/release.sh"
   },
   "author": "taetaeo <ohtk1119@gmail.com>",
   "license": "ISC",
