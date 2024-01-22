@@ -2,7 +2,8 @@
   "name": "taeo-hooks",
   "version": "1.0.5",
   "description": "taeo's custom hooks playgrounds",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/taetaeo/taeo-hooks.git"
@@ -18,26 +19,16 @@
   "bugs": {
     "url": "https://github.com/taetaeo/taeo-hooks/issues"
   },
-  "exports": {
-    ".": {
-      "import": "./dist/index.es.js",
-      "require": "./dist/index.umd.js",
-      "types": "./dist/index.d.ts"
-    },
-    "./package.json": "./package.json",
-    "./dist/*": "./dist/*"
-  },
   "files": [
     "/dist"
   ],
   "scripts": {
-    "prepare": "npm run build",
-    "build": "tsc && npm run build",
-    "release": "sh ./scripts/release.sh",
-    "clean": "rm -rf dist"
+    "build": "tsc",
+    "clean": "rm -rf dist",
+    "release": "sh ./scripts/release.sh"
   },
   "author": "taetaeo <ohtk1119@gmail.com>",
-  "license": "ISC",
+  "license": "MIT",
   "peerDependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
