@@ -26,5 +26,5 @@ export default function useMultiState(initialState: StateType = {}) {
 
   const onClear = (name: string) => dispatch({ name, value: "" });
 
-  return [state, dispatch, onChange, onClear];
+  return [state, dispatch, onChange, onClear] as const;
 }
