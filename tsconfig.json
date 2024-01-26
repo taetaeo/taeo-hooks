@@ -1,16 +1,22 @@
 {
-  "include": ["src"],
+  "include": ["src", "index.ts"],
   "exclude": ["node_modules", "src/tests"],
   "compilerOptions": {
     "outDir": "./dist",
     "module": "ESNext",
     "target": "ES2020",
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
-    "jsx": "react",
     "sourceMap": true,
     "declaration": true,
     "esModuleInterop": true,
     "typeRoots": ["index.d.ts", "node_modules/@types"],
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+
+    /* Bundler mode */
+    // "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": false, // Change this line
+    "jsx": "react"
   }
 }

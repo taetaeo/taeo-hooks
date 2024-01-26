@@ -1,6 +1,6 @@
 {
-  "name": "@taeo-hooks",
-  "version": "1.0.0",
+  "name": "taeo-hooks",
+  "version": "1.0.6",
   "description": "taeo's custom hooks playgrounds",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -12,17 +12,23 @@
     "react",
     "hooks",
     "typescript",
-    "react-hook"
+    "react-hook",
+    "custom-hook",
+    "taeo"
   ],
   "bugs": {
     "url": "https://github.com/taetaeo/taeo-hooks/issues"
   },
+  "files": [
+    "/dist"
+  ],
   "scripts": {
-    "build": "rm -rf ./dist && tsc",
-    "prepare": "npm run build"
+    "build": "tsc",
+    "clean": "rm -rf dist",
+    "release": "sh ./scripts/release.sh"
   },
   "author": "taetaeo <ohtk1119@gmail.com>",
-  "license": "ISC",
+  "license": "MIT",
   "peerDependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
@@ -32,5 +38,12 @@
     "@types/react-dom": "^18.2.18",
     "typescript": "^5.3.3"
   },
-  "private": false
+  "private": false,
+  "contributors": [
+    {
+      "name": "TaeKwon Oh",
+      "email": "ohtk1119@gmail.com",
+      "url": "https://github.com/taetaeo"
+    }
+  ]
 }
