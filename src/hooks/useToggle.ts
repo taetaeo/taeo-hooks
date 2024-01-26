@@ -8,11 +8,9 @@ import React from "react";
 type InitialStateType = boolean;
 
 export default function useToggle(initialState: InitialStateType = false) {
-  const [state, toggle] = React.useState(initialState);
+  const [state, toggle] = React.useState<boolean>(initialState);
 
-  const handleToggle = React.useCallback(() => {
-    return toggle((prev) => !prev);
-  }, [state]);
+  const handleToggle = () => toggle((prev) => !prev);
 
-  return [state, handleToggle, toggle] as const;
+  return [state, toggle, handleToggle] as const;
 }
