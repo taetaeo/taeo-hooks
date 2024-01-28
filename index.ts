@@ -4,3 +4,5 @@ export { default as useCopyClipBoard } from "./src/hooks/useCopyClipBoard";
 export { default as usePageTitle } from "./src/hooks/usePageTitle";
 export { default as useMultiState } from "./src/hooks/useMultiState";
 export { default as useWindowResize } from "./src/hooks/useWindowResize";
+export { default as usePageNavigation } from "./src/hooks/usePageNavigation";
+export { default as useCheckbox } from "./src/hooks/useCheckBox";
