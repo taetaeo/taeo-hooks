@@ -7,3 +7,4 @@ export { default as useWindowResize } from "./src/hooks/useWindowResize";
 export { default as usePageNavigation } from "./src/hooks/usePageNavigation";
 export { default as useCheckbox } from "./src/hooks/useCheckBox";
 export { default as useUpdateEffect } from "./src/hooks/useUpdateEffect";
+export { default as useOutSideClick } from "./src/hooks/useOutSideClick";
