@@ -1,4 +1,7 @@
-import React, { useCallback, useEffect, useState } from "react";
+import type { Dispatch, SetStateAction } from "react";
+import { useCallback, useEffect, useState } from "react";
+
+type SetValue<T> = Dispatch<SetStateAction<T>>;
 
 const isServer = typeof window === "undefined";
 
@@ -29,10 +32,33 @@ export default function useLocalStorage<T>(key: string, initialValue: T | (() =>
     }, [initialValue, key]);
 
   /** 로컬 스토리지 저장 */
-  const save = () => {};
+  const save: SetValue<T> = useCallback((value) => {
+    if (isServer) {
+      console.warn("브라우저 환경에서만 사용 가능합니다. 서버환경에서 사용이 불가능합니다.");
+    }
+    try {
+      setStoredValue(value);
+
+      window.localStorage.setItem(key, JSON.stringify(value));
+    } catch {
+      return;
+    }
+  }, []);
+
+  useEffect(() => {
+    setStoredValue(read());
+  }, [key]);
 
   /** 로컬 스토리지 수정 */
-  const update = () => {};
+  const update = useCallback(
+    (event: StorageEvent | CustomEvent) => {
+      if ((event as StorageEvent)?.key && (event as StorageEvent).key !== key) {
+        return;
+      }
+      setStoredValue(read());
+    },
+    [key, read]
+  );
 
   /** 로컬 스토리지 삭제 */
   const remove = () => {};
@@ -41,5 +67,5 @@ export default function useLocalStorage<T>(key: string, initialValue: T | (() =>
     setStoredValue(read());
   }, [key]);
 
-  return { read };
+  return { read, update };
 }
