@@ -17,6 +17,13 @@ const isServer = typeof window === "undefined";
  * @param {Options} options - 훅에서 쓰이는 옵션 값
  * @returns {()=>{}} read(읽기), save(저장), remove(삭제), update(업데이트 마운트)
  */
+
+/**
+ *
+ * @param options
+ * @description options의 기능에 대한 설명
+ * initialSave : 스토리지에 저장된 값이 없을 경우, 초기값을 저장할 것인지 말 것인지 type : boolean
+ */
 export default function useLocalStorage<T>(key: string, initialValue: T | (() => T), options: Options = { initialSave: false }) {
   const [storedValue, setStoredValue] = useState<T>(initialValue);
 
