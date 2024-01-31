@@ -20,7 +20,7 @@ type ReturnType = [StateType, DispatchType, ChangeEventType, ClearEventType];
  *
  * @template StateType - 초기값을 나타내는 타입
  * @param {StateType} initialState - 상태관리 타입
- * @returns {ReturnType} 배열형태의 상태관리와 이벤트 핸들러, 삭제 핸들러를 반환한다.
+ * @returns {ReturnType} 배열형태의 상태관리와 이벤트 핸들러, 삭제 핸들러를 반환한다.`
  */
 
 const reducer = (state: StateType, action: ActionType): StateType => {
