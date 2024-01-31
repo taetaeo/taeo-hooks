@@ -9,4 +9,3 @@ export { default as useCheckbox } from "./src/hooks/useCheckBox";
 export { default as useUpdateEffect } from "./src/hooks/useUpdateEffect";
 export { default as useOutSideClick } from "./src/hooks/useOutSideClick";
 export { default as useTimer } from "./src/hooks/useTimer";
-export { default as useMediaQuery } from "./src/hooks/useMediaQuery";
