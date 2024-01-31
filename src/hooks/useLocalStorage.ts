@@ -36,7 +36,11 @@ export default function useLocalStorage<T>(key: string, initialValue: T | (() =>
     try {
       const rawData = window.localStorage.getItem(key) as T;
 
-      if (!rawData) return initialValueToUse;
+      /** 값이 없을 경우 */
+      if (typeof rawData === "object" && rawData === null && options.initialSave) {
+        save(initialValueToUse);
+        return initialValueToUse;
+      }
 
       return rawData ? rawData : initialValueToUse;
     } catch {
