@@ -1,6 +1,6 @@
 ## taeo-hooks Library
 
-### React Hooks 라이브러리 패키지
+### React Hooks library package
 
 > 이 래포는 `React`에서 자주쓰이는 여러가지 hooks을 만든 팩입니다.
 >
@@ -8,7 +8,11 @@
 >
 > https://www.npmjs.com/package/taeo-hooks
 
-### 사용 방법
+### Description
+
+- 자세한 설명은 이곳을 참고해주세요. [설명 보러가기](https://taeo.gitbook.io/taeo/taeo-hooks)
+
+### How to use?
 
 ```bash
 // npm
@@ -18,7 +22,7 @@ $ npm install taeo-hooks
 $ yarn add taeo-hooks
 ```
 
-### 업데이트 내역
+### Update Schedule
 
 | 일정       | 내용                                                                                                                                                                                                                                                                   | 버전           |
 | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
@@ -29,3 +33,12 @@ $ yarn add taeo-hooks
 | 2024.01.30 | 9. `useLocalStorage` : 로컬스토리지 컨트롤 훅 - 조회                                                                                                                                                                                                                   | 1.0.13         |
 | 2024.01.31 | 10. `useLocalStorage` : 로컬스토리지의 기능 추가 - 저장, 삭제                                                                                                                                                                                                          | 1.0.14         |
 | 2024.01.31 | 11. `useMediaQuery` : 미디어 쿼리를 추적하는 기능                                                                                                                                                                                                                      | 1.0.15         |
+
+### Community
+
+- 이메일을 보내주시거나 이슈를 통해 의견을 주시면 감사하겠습니다.
+- Send me an email(ohtk1119@gmail.com) or Contribute on Issues, I glad to hear your suggestion.
+
+### License
+
+[MIT License](https://rmm5t.mit-license.org/)
