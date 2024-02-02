@@ -12,3 +12,4 @@ export { default as useTimer } from "./src/hooks/useTimer";
 export { default as useLocalStorage } from "./src/hooks/useLocalStorage";
 export { default as useMediaQuery } from "./src/hooks/useMediaQuery";
 export { default as useCounter } from "./src/hooks/useCounter";
+export { default as useIsFirstRender } from "./src/hooks/useIsFirstRender";
