@@ -20,6 +20,7 @@ interface ICopyClipboardResult {
  * @param {string} options.successMsg - 복사 성공 시 표시할 메시지 (기본값: "복사하였습니다.")
  * @param {string} options.errorMsg - 복사 실패 시 표시할 메시지 (기본값: "복사가 실패하였습니다.")
  * @returns {Object} - isCopy, handleCopy, error, resetError를 제공하는 객체
+ * @documents https://taeo.gitbook.io/taeo/taeo-hooks/usecopyclipboard
  */
 export default function useCopyClipBoard({ successMsg = "복사하였습니다.", errorMsg = "복사가 실패하였습니다." }: ICopyClipboardProps): ICopyClipboardResult {
   const [isCopy, setIsCopy] = React.useState<boolean>(false);
