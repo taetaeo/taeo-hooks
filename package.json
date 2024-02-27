@@ -1,6 +1,6 @@
 {
   "name": "taeo-hooks",
-  "version": "1.0.22",
+  "version": "1.0.23",
   "description": "taeo's custom hooks playgrounds",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
