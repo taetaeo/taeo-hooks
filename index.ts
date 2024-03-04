@@ -17,3 +17,4 @@ export { default as useIsFirstRender } from "./src/hooks/useIsFirstRender";
 export { default as useDebounce } from "./src/hooks/useDebounce";
 export { default as useMap } from "./src/hooks/useMap";
 export { default as useUnmount } from "./src/hooks/useUnmount";
+export { default as useCookie } from "./src/hooks/useCookie";
