@@ -1,6 +1,6 @@
 {
   "name": "taeo-hooks",
-  "version": "1.0.23",
+  "version": "1.0.24",
   "description": "taeo's custom hooks playgrounds",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -33,7 +33,7 @@
     "js-cookie": "^3.0.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.21.3"
+    "react-router-dom": "^6.22.2"
   },
   "devDependencies": {
     "@types/js-cookie": "^3.0.6",
