@@ -1,20 +1,24 @@
 #!/bin/bash
 
-# Read the current package.json version
+
+# 명령어가 실패하면 즉시 종료
+set -e
+
+# 현재 package.json의 버전 읽기
 current_version=$(node -p "require('./package.json').version")
-echo "Current version: $current_version"
+echo "현재 버전: $current_version"
 
-# Increment the version number
+# Git 태그를 생성하지 않고 버전 번호 증가
 new_version=${npm version --no-git-tag-version patch}
-echo "New version: $new_version"
+echo "새로운 버전: $new_version"
 
-# Build the project
+# 프로젝트 빌드
 $(npm run build)
 
 
-# Commit the changes
+# 변경 사항 커밋
 git add .
-git commit -m "release: new release $new_version"
+git commit -m "release: 새 배포 $new_version"
 
-# Inform the user
+# 사용자에게 알림
 echo "Released $new_version"
