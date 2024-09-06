@@ -24,3 +24,4 @@ export * from "./hooks/useToggle";
 export * from "./hooks/useUnmount";
 export * from "./hooks/useUpdateEffect";
 export * from "./hooks/useWindowResize";
+export * from "./hooks/useHover";
