@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 
 interface StateType {
   [key: string]: string | string[] | any;
@@ -9,10 +9,17 @@ interface ActionType {
   value: string | any;
 }
 
-type DispatchType = React.Dispatch<ActionType>;
-type ChangeEventType = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
-type ClearEventType = (name: string) => void;
-type ReturnType = [StateType, DispatchType, ChangeEventType, ClearEventType];
+type ChangeHandler = (name: string, value: string) => void;
+type ClearHandler = (name: string) => void;
+
+type MultiStateResult<T> = [StateType, React.Dispatch<ActionType>, ChangeHandler, ClearHandler];
+
+const reducer = (state: StateType, action: ActionType) => {
+  return {
+    ...state,
+    [action.name]: action.value,
+  };
+};
 
 /**
  * 이 훅은 많은 상태관리를 하나의 훅으로 유용하게 하기 위해서 만들어졌습니다.
@@ -23,22 +30,14 @@ type ReturnType = [StateType, DispatchType, ChangeEventType, ClearEventType];
  * @returns {ReturnType} 배열형태의 상태관리와 이벤트 핸들러, 삭제 핸들러를 반환한다.`
  */
 
-const reducer = (state: StateType, action: ActionType): StateType => {
-  return {
-    ...state,
-    [action.name]: action.value,
-  };
-};
-
-export default function useMultiState(initialState: StateType = {}): ReturnType {
+export default function useMultiState<T>(initialState: StateType = {}): MultiStateResult<T> {
   const [state, dispatch] = React.useReducer(reducer, initialState);
 
-  const onChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    if (!e.target) return;
-    return dispatch({ name: e.target?.name, value: e.target?.value });
+  const onChange: ChangeHandler = (name, value) => {
+    return dispatch({ name: name, value: value });
   };
 
-  const onClear = (name: string) => dispatch({ name, value: "" });
+  const onClear: ClearHandler = (name) => dispatch({ name, value: "" });
 
-  return [state, dispatch, onChange, onClear];
+  return [state, dispatch, onChange, onClear] as const;
 }
