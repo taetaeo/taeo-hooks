@@ -1,16 +1,15 @@
-import React from "react";
+import { useState, useCallback } from "react";
 
-/**
- * toggle의 기능을 하는 커스텀 훅이다.
- *매개변수 타입은 boolean입니다.
- */
+export default function useToggle(initialValue: boolean = false) {
+  const [value, setValue] = useState(initialValue);
 
-type InitialStateType = boolean;
+  const toggle = useCallback(() => {
+    setValue((prevValue) => !prevValue);
+  }, []);
 
-export default function useToggle(initialState: InitialStateType = false) {
-  const [state, toggle] = React.useState<boolean>(initialState);
+  const setToggle = useCallback((newValue: boolean) => {
+    setValue(newValue);
+  }, []);
 
-  const handleToggle = () => toggle((prev) => !prev);
-
-  return [state, toggle, handleToggle] as const;
+  return { value, toggle, setToggle };
 }
