@@ -1,6 +1,6 @@
 {
   "include": ["src", "index.ts"],
-  "exclude": ["node_modules", "src/tests"],
+  "exclude": ["node_modules", "src/__tests__"],
   "compilerOptions": {
     "outDir": "./dist",
     "module": "ESNext",
