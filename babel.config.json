@@ -1,0 +1,7 @@
+{
+  "presets": [
+    ["@babel/preset-env", { "targets": { "node": "current" } }], // jest테스트는 node환경에서 돌아가므로 
+    ["@babel/preset-react", { "runtime": "automatic" }], // automatic: jsx를 transpile하는 함수들을 자동으로 import.
+    "@babel/preset-typescript"
+  ]
+}
