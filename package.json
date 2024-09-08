@@ -26,9 +26,11 @@
     "build": "tsc",
     "clean": "rm -rf dist",
     "release": "sh ./scripts/release.sh",
+    "coverage": "jest --coverage",
     "test": "jest",
     "test:toggle": "jest --testPathPattern='src/__tests__/useToggle.test.ts'",
-    "test:unmount": "jest --testPathPattern='src/__tests__/useUnmount.test.ts'"
+    "test:unmount": "jest --testPathPattern='src/__tests__/useUnmount.test.ts'",
+    "test:cookie": "jest  --testPathPattern='src/__tests__/useCookie.test.ts'"
   },
   "author": "taetaeo <ohtk1119@gmail.com>",
   "license": "MIT",
