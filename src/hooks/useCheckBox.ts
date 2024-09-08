@@ -1,7 +1,6 @@
 import type { ChangeEvent } from "react";
 import { useMemo, useState } from "react";
 
-/** CheckBox Hooks */
 /** Props Type */
 interface IUseCheckBoxProps {
   id: string;
@@ -62,7 +61,6 @@ export default function useCheckbox({ id = "", title = "", length = 1 }: IUseChe
     handleAllClear,
   };
 }
-/** CheckBox Hooks */
 
 /** CheckBox Module */
 
