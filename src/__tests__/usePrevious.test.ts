@@ -2,7 +2,7 @@ import { renderHook, act } from "@testing-library/react-hooks";
 import usePrevious from "../hooks/usePrevious";
 
 describe("usePrevious hook", () => {
-  test("should return undefined initially", () => {
+  test("초기 값 = undefined", () => {
     // 훅을 렌더링하고 초기 상태를 확인합니다.
     const { result } = renderHook(() => usePrevious(0));
 
@@ -10,7 +10,7 @@ describe("usePrevious hook", () => {
     expect(result.current).toBeUndefined();
   });
 
-  test("should return the previous value after updates", () => {
+  test("업데이트 시 이전의 값 반환", () => {
     // 훅을 렌더링합니다.
     const { result, rerender } = renderHook(({ value }) => usePrevious(value), {
       initialProps: { value: 0 },
