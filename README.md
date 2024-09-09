@@ -42,6 +42,8 @@ $ yarn add taeo-hooks
 | 2024.03.01 | 18. `useLifeCycle` : 라이프사이클 이벤트에 대응하는 기능의 훅                                                                                                                                                                                                                                         | 1.0.25         |
 | 2024.09.05 | 19. `useScrollTop`, `useTabIndex`, `usePageNavigation`                                                                                                                                                                                                                                                | 1.0.27         |
 | 2024.09.06 | 20. `useHover` : 요소가 호버되고 있는지 여부를 추적하는 기능의 훅                                                                                                                                                                                                                                     | 1.0.28         |
+| 2024.09.09 | 21. `useFetch` : 네트워크 통신으로 data, loading, error를 처리하는 fetch 기능의 훅                                                                                                                                                                                                                    | 1.0.30         |
+| 2024.09.09 | 22. `usePrevious` : 현재 렌더링과 이전 렌더링의 값을 비교하는 기능의 훅                                                                                                                                                                                                                               | 1.1.0          |
 
 ### Community
 
