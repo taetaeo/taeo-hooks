@@ -30,7 +30,8 @@
     "test": "jest",
     "test:toggle": "jest --testPathPattern='src/__tests__/useToggle.test.ts'",
     "test:unmount": "jest --testPathPattern='src/__tests__/useUnmount.test.ts'",
-    "test:cookie": "jest  --testPathPattern='src/__tests__/useCookie.test.ts'"
+    "test:cookie": "jest  --testPathPattern='src/__tests__/useCookie.test.ts'",
+    "test:fetch": "jest  --testPathPattern='src/__tests__/useFetch.test.ts'"
   },
   "author": "taetaeo <ohtk1119@gmail.com>",
   "license": "MIT",
