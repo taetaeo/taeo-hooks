@@ -6,8 +6,8 @@ describe("useFetch hook", () => {
     jest.clearAllMocks();
   });
 
-  test("should fetch data successfully", async () => {
-    const mockData = { name: "John Doe" };
+  test("데이터 패칭 성공", async () => {
+    const mockData = { name: "test name" };
 
     // fetch를 모킹하여 성공적인 응답을 반환하도록 설정
     global.fetch = jest.fn(() =>
@@ -33,7 +33,7 @@ describe("useFetch hook", () => {
     expect(result.current.error).toBeNull();
   });
 
-  test("should handle fetch error", async () => {
+  test("데이터 패칭 실패", async () => {
     // fetch를 모킹하여 실패하는 응답을 반환하도록 설정
     global.fetch = jest.fn(() =>
       Promise.resolve({
