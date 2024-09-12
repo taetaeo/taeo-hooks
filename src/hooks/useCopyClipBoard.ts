@@ -1,17 +1,19 @@
-import React from "react";
+import { useCallback, useState } from "react";
 
-/** 매개변수로 넣어줄 타입 */
-interface ICopyClipboardProps {
+/**
+ * @description Props 타입
+ */
+export interface UseCopyClipboardProps {
   successMsg?: string;
   errorMsg?: string;
 }
 
-/** 훅의 결과에 대한 타입 */
-interface ICopyClipboardResult {
-  isCopy: boolean;
-  handleCopy: (text: string) => Promise<boolean>;
-  error: string | null;
-  resetError: () => void;
+/**
+ * @description Return 타입
+ */
+export interface UseCopyClipboard {
+  copiedText: string | null;
+  copy: (text: string) => Promise<boolean>;
 }
 
 /**
@@ -22,26 +24,25 @@ interface ICopyClipboardResult {
  * @returns {Object} - isCopy, handleCopy, error, resetError를 제공하는 객체
  * @documents https://taeo.gitbook.io/taeo/taeo-hooks/usecopyclipboard
  */
-export default function useCopyClipBoard({ successMsg = "복사하였습니다.", errorMsg = "복사가 실패하였습니다." }: ICopyClipboardProps): ICopyClipboardResult {
-  const [isCopy, setIsCopy] = React.useState<boolean>(false);
-  const [error, setError] = React.useState<string | null>(null);
+export default function useCopyClipBoard(): UseCopyClipboard {
+  const [copiedText, setCopiedText] = useState<string | null>(null);
 
-  const handleCopy = async (text: string): Promise<boolean> => {
-    try {
-      await navigator.clipboard.writeText(text);
-      setIsCopy(true);
-      setError(null);
-      alert(successMsg);
-      return true;
-    } catch (err) {
-      console.error(err);
-      setIsCopy(false);
-      setError(errorMsg);
+  const copy = useCallback(async (text) => {
+    if (!navigator?.clipboard) {
+      console.warn("Clipboard not supported");
       return false;
     }
-  };
 
-  const resetError = () => setError(null);
+    try {
+      await navigator.clipboard.writeText(text);
+      setCopiedText(text);
+      return true;
+    } catch (error) {
+      console.warn("Copy failed", error);
+      setCopiedText(null);
+      return false;
+    }
+  }, []);
 
-  return { isCopy, handleCopy, error, resetError };
+  return { copiedText, copy };
 }

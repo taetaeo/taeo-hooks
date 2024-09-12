@@ -33,7 +33,8 @@
     "test:unmount": "jest --testPathPattern='src/__tests__/useUnmount.test.ts'",
     "test:cookie": "jest  --testPathPattern='src/__tests__/useCookie.test.ts'",
     "test:fetch": "jest  --testPathPattern='src/__tests__/useFetch.test.ts'",
-    "test:previous": "jest --testPathPattern='src/__tests__/usePrevious.test.ts'"
+    "test:previous": "jest --testPathPattern='src/__tests__/usePrevious.test.ts'",
+    "test:syncAsync": "jest --testPathPattern='src/__tests__/sync.test.ts'"
   },
   "author": "taetaeo <ohtk1119@gmail.com>",
   "license": "MIT",

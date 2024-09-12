@@ -1,5 +1,13 @@
 import { useEffect, useRef, useState } from "react";
 
+export type UseHover = [
+  // Hover할 대상의 html 요소 참조
+  React.MutableRefObject<HTMLElement | HTMLDivElement>,
+
+  // Hover 중인지 여부 (true / false)
+  boolean
+];
+
 /**
  * 요소가 호버되고 있는지 여부를 추적하는 커스텀 훅입니다.
  *
