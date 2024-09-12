@@ -1,18 +1,18 @@
 import { useEffect, useState, useCallback, useMemo } from "react";
 
-interface IWindowSize {
+export type UseWindowResize = {
   width: number;
   height: number;
-}
+};
 
 /**
  * 이 훅은 브라우저창의 크기를 추적하는 훅입니다.
  * @returns 추적하여 현재 브라우저창의 크기를 나타내는 객체를 반환합니다.
  */
 
-export default function useWindowResize(): IWindowSize {
+export default function useWindowResize(): UseWindowResize {
   // 윈도우 크기 상태 및 '초기 값'
-  const [windowSize, setWindowSize] = useState<IWindowSize>({ width: window.innerWidth, height: window.innerHeight });
+  const [windowSize, setWindowSize] = useState<UseWindowResize>({ width: window.innerWidth, height: window.innerHeight });
 
   // 크기가 변경될 때 호출되는 콜백 함수
   const handleResize = useCallback(() => {

@@ -1,36 +1,63 @@
 import { useNavigate } from "react-router-dom";
-
-/** URL 타입 */
-type UrlType = string;
-type NameType = "_blank" | "_parent" | "_self" | "_top";
+import type { Callback } from "../types";
 
 /**
  * 페이지 내비게이션을 관리하는 커스텀 훅입니다.
  * React Router의 useNavigate 훅을 이용하여 페이지 이동을 처리합니다.
  * @returns {Object} - 페이지 내비게이션 관련 함수들을 포함한 객체
  */
-
 export default function usePageNavigation() {
   // React Router의 useNavigate 훅을 사용하여 네비게이션 객체를 얻어옵니다.
   const navigate = useNavigate();
 
-  /** 페이지 뒤로가기 기능 */
-  const onGoBackword = () => navigate(-1);
-
-  /** 페이지 앞으로 가기 기능 */
-  const onGoForward = () => navigate(1);
-
   /**
-   * 페이지 이동 기능
-   * @param { UrlType } path - 이동할 페이지의 url
-   * @returns {vodi} - 페이지 이동
+   * @description 페이지 뒤로가기 기능
+   * @param {Callback} callback - 콜백함수
    */
-  const move = (path: UrlType) => navigate(path);
+  const goToBackward = (callback?: Callback) => {
+    navigate(-1);
+
+    if (typeof callback === "function") {
+      callback();
+    }
+  };
 
   /**
-   * 다른 브라우저 창에서 페이지 이동 기능
-   * @param {UrlType} url - 이동할 페이지의 URL
-   * @param {string} name - 새 창의 이름 (기본값: "_blank")
+   * @description 페이지 앞으로 가기 기능
+   * @param {Callback} callback - 콜백함수
+   */
+  const goToForward = (callback?: Callback) => {
+    navigate(1);
+
+    if (typeof callback === "function") {
+      callback();
+    }
+  };
+
+  /**
+   * @description 페이지 이동 기능
+   * @param {string} path - 이동할 페이지의 url
+   * @param {Callback[]} args - callback()함수
+   * @returns {void} - 페이지 이동
+   */
+  const move = (path: string, ...args: Callback[]) => {
+    navigate(path);
+
+    if (typeof args[0] === "function") {
+      args[0]();
+    }
+    if (typeof args[1] === "function") {
+      args[1]();
+    }
+    if (typeof args[2] === "function") {
+      args[2]();
+    }
+  };
+
+  /**
+   * @description 다른 브라우저 창에서 페이지 이동 기능
+   * @param {string} url - 이동할 페이지의 URL
+   * @param {"_blank" | "_parent" | "_self" | "_top"} name - 새 창의 이름 (기본값: "_blank")
    * @description
       - _blank : 새 창에 열립니다. 이것이 기본값입니다.
       - parent : 부모 프레임에 열립니다.
@@ -40,18 +67,20 @@ export default function usePageNavigation() {
    * @returns {void} - 브라우저 이동
    * 
    */
-  const moveOtherBrower = (url: UrlType, name: NameType = "_blank", option: string): void => {
+  const moveOtherBrowser = (url: string, name: "_blank" | "_parent" | "_self" | "_top" = "_blank", option: string): void => {
     window.open(url, name, option);
   };
 
-  /** 페이지 이동 - 메인 */
-  const onGoHome = () => navigate("/");
+  /**
+   * @description 페이지 이동 - 메인
+   */
+  const goToHome = () => navigate("/");
 
   return {
-    onGoBackword,
-    onGoForward,
-    onGoHome,
+    goToBackward,
+    goToForward,
+    goToHome,
     move,
-    moveOtherBrower,
+    moveOtherBrowser,
   };
 }

@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 
+export type UseTimer = number;
+
 /**
  * 타이머 기능을 하는 커스텀 훅
  * @param {number} initialTime - 타이머의 초기 시간(초)입니다.
  * @returns {number} - 현재 시간
  */
 
-export default function useTimer(initialTime: number): number {
+export default function useTimer(initialTime: number): UseTimer {
   const [time, setTime] = useState(initialTime); // 현재 시간에 대한 상태관리
 
   useEffect(() => {

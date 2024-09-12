@@ -39,6 +39,8 @@ const useFetch = <T>(url: string, options?: FetchOptions): ReturnFetch<T> => {
       } catch (err) {
         if (err.name !== "AbortError") {
           setError(err as Error);
+        } else {
+          setError(new Error("Something went wrong"));
         }
       } finally {
         setLoading(false);

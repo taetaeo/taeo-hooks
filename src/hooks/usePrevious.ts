@@ -9,7 +9,6 @@ import { useEffect, useRef } from "react";
  * @see [document]('https://gist.github.com/kwoncharles/e7652706e740a118d75b8b17a95df58f#file-useprevious-ts')
  * @returns 전달받은 값의 이전 값을 반환합니다.
  * @example
- 
     function Example() {
         const [exam, set] = useState('A');
         const prevExam = usePrevious(exam);
@@ -22,6 +21,7 @@ import { useEffect, useRef } from "react";
     }
  * 
  */
+
 export default function usePrevious(value) {
   // useRef를 사용하여 이전 값을 저장할 ref 객체를 생성합니다.
   const ref = useRef();

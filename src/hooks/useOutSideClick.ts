@@ -1,13 +1,15 @@
 import { useEffect } from "react";
 import type { RefObject } from "react";
+import type { Callback } from "../types";
 
 /**
  *
  * useOutSideClick 훅은 특정 Ref 객체를 사용하여 외부 클릭을 감지하고, 외부 클릭이 감지되면 지정된 콜백 함수를 호출한다.
+ *
  * @param {RefObject<HTMLElement>} ref - 외부 클릭을 감지할 대상 요소의 Ref 객체
  * @param {()=>void} callback - 외부 클릭이 감지되었을 때, 호출될 콜백 함수
  */
-export default function useOutSideClick(ref: RefObject<HTMLElement>, callback: () => void, refs?: RefObject<HTMLElement>[]) {
+export default function useOutSideClick(ref: RefObject<HTMLElement>, callback: Callback, refs?: RefObject<HTMLElement>[]) {
   useEffect(() => {
     /**
      *

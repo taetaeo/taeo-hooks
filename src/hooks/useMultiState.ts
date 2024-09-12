@@ -1,20 +1,23 @@
-import * as React from "react";
+import { useReducer, type Dispatch } from "react";
 
-interface StateType {
-  [key: string]: string | string[] | any;
-}
-
-interface ActionType {
+export interface ReducerActionType {
   name: string;
-  value: string | any;
+  value: unknown;
 }
 
-type ChangeHandler = (name: string, value: string) => void;
-type ClearHandler = (name: string) => void;
+export type UseMultiState<T> = [
+  // 초기값
+  T,
+  // Dispatch 함수
+  Dispatch<ReducerActionType>,
+  // 상태 변경 함수
+  (name: string, value: unknown) => void,
+  // 상태 청소 함수
+  (name: string) => void
+];
 
-type MultiStateResult<T> = [StateType, React.Dispatch<ActionType>, ChangeHandler, ClearHandler];
-
-const reducer = (state: StateType, action: ActionType) => {
+// Reducer 함수의 제네릭 타입을 명확하게 설정
+const reducer = <T>(state: T, action: ReducerActionType): T => {
   return {
     ...state,
     [action.name]: action.value,
@@ -30,14 +33,28 @@ const reducer = (state: StateType, action: ActionType) => {
  * @returns {ReturnType} 배열형태의 상태관리와 이벤트 핸들러, 삭제 핸들러를 반환한다.`
  */
 
-export default function useMultiState<T>(initialState: StateType = {}): MultiStateResult<T> {
-  const [state, dispatch] = React.useReducer(reducer, initialState);
+export default function useMultiState<T extends { [key: string]: unknown }>(initialState: T): UseMultiState<T> {
+  // useReducer에서 제네릭 타입을 명확하게 전달하여 state의 타입을 유지
+  const [state, dispatch] = useReducer(reducer, initialState);
 
-  const onChange: ChangeHandler = (name, value) => {
-    return dispatch({ name: name, value: value });
+  /**
+   * @description 상태를 변화시키는 함수
+   * @param {string} name multi-state's Key
+   * @param {unknown} value multi-state's value
+   */
+
+  const onChange = (name: string, value: unknown): void => {
+    dispatch({ name, value });
   };
 
-  const onClear: ClearHandler = (name) => dispatch({ name, value: "" });
+  /**
+   * @description 상태를 정리하는 함수
+   * @param {string} nam multi-state's key
+   */
+  const onClear = (name: string): void => {
+    dispatch({ name, value: null });
+  };
 
-  return [state, dispatch, onChange, onClear] as const;
+  // 반환되는 state의 타입은 T가 유지됨
+  return [state as T, dispatch, onChange, onClear] as const;
 }

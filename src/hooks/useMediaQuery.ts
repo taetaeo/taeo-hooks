@@ -4,7 +4,8 @@ import useUpdateEffect from "./useUpdateEffect";
 /**
  * 이 훅은 주어진 미디어 쿼리에 대한 상태를 관리하는 커스텀 훅입니다.
  * @param {string} query - 사용할 미디어 쿼리, 문자열로 입력합니다.
- * @returns {boolean} - 주어진 미디어 쿼리에 대한 매치 결과 (true 또는 false)를 반환합니다.
+ * @returns {boolean} - boolean 값을 반환합니다.
+ *  - 'media' : 주어진 미디어 쿼리에 대한 매치 결과 (true 또는 false).
  */
 export default function useMediaQuery(query: string): boolean {
   const [media, setMedia] = useState<boolean>(() => {
