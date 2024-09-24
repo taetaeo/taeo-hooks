@@ -6,7 +6,7 @@ import type { Callback } from "../types";
  * React Router의 useNavigate 훅을 이용하여 페이지 이동을 처리합니다.
  * @returns {Object} - 페이지 내비게이션 관련 함수들을 포함한 객체
  */
-export default function usePageNavigation() {
+export function usePageNavigation() {
   // React Router의 useNavigate 훅을 사용하여 네비게이션 객체를 얻어옵니다.
   const navigate = useNavigate();
 

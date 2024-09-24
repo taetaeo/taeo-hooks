@@ -11,7 +11,7 @@ import { useEffect, useRef } from "react";
  * });
  */
 
-export default function useUnmount(func: () => void) {
+export function useUnmount(func: () => void) {
   // useRef를 사용하여 함수를 저장할 ref 객체 funcRef를 생성합니다.
   const funcRef = useRef(func);
 

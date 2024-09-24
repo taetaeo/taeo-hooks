@@ -15,7 +15,7 @@ export type UseToggle = {
  *  - 'setToggle' : 원하는 값으로 상태를 직접 업데이트하는 함수.
  */
 
-export default function useToggle(initialValue: boolean = false) {
+export function useToggle(initialValue: boolean = false) {
   const [value, setValue] = useState(initialValue);
 
   const toggle = useCallback(() => {

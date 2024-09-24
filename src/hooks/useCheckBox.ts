@@ -44,7 +44,7 @@ export interface IUseCheckBoxResult {
  * @param {IUseCheckBoxProps} param0 - 훅에 전달되는 속성들입니다.
  * @returns {IUseCheckBoxResult} - 체크박스 상태와 관련 함수들이 담긴 결과입니다.
  */
-export default function useCheckbox({ id = "", title = "", length = 1 }: IUseCheckBoxProps): IUseCheckBoxResult {
+export function useCheckbox({ id = "", title = "", length = 1 }: IUseCheckBoxProps): IUseCheckBoxResult {
   const [checkItems, setCheckItems] = useState<string[]>([]);
 
   /** 메모이제이션된 체크박스 아이템 - length가 변경될 떄만 다시 계산하고 그렇지 않은 겨웅 계산한 값을 재사용 * */

@@ -15,7 +15,7 @@ import { useRef } from "react";
  * 특정 코드 블록을 실행하고 처음 랜더링떄만 부수 작업할 수 있는 효과를 줄 수 있다.
  * @returns {boolean}
  */
-export default function useIsFirstRender(): boolean {
+export function useIsFirstRender(): boolean {
   // useRef를 사용하여 컴포넌트가 처음 렌더링되었는지 추적하는 ref 객체를 생성합니다.
   const isFirstMount = useRef(true);
 

@@ -18,7 +18,7 @@ interface UseCounterOutput {
  * @property {Function} reset - 초깃값으로 변경 및 0
  * @property {Function} setCount - 직접 숫자 조작
  */
-const useCounter = (initialNumber: number): UseCounterOutput => {
+export const useCounter = (initialNumber: number): UseCounterOutput => {
   const [count, setCount] = useState(() => {
     return initialNumber ?? 0;
   });
@@ -37,5 +37,3 @@ const useCounter = (initialNumber: number): UseCounterOutput => {
 
   return { count, increment, decrement, reset, setCount };
 };
-
-export default useCounter;

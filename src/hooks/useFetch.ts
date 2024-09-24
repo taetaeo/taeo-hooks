@@ -10,7 +10,7 @@ export interface FetchOptions extends RequestInit {
   // 추가 옵션
 }
 
-const useFetch = <T>(url: string, options?: FetchOptions): ReturnFetch<T> => {
+export const useFetch = <T>(url: string, options?: FetchOptions): ReturnFetch<T> => {
   const [data, setData] = useState<T | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<Error | null>(null);
@@ -56,5 +56,3 @@ const useFetch = <T>(url: string, options?: FetchOptions): ReturnFetch<T> => {
 
   return { data, loading, error };
 };
-
-export default useFetch;

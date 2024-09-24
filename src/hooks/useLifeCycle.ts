@@ -6,7 +6,7 @@ import type { Callback } from "../types";
  * @param {Callback} mount 컴포넌트가 마운트될 때 실행되는 콜백 함수
  * @param {Callback} unmount 컴포넌트가 언마운트될 때 실행되는 콜백 함수
  */
-export default function useLifeCycle(mount?: Callback, unmount?: Callback): void {
+export function useLifeCycle(mount?: Callback, unmount?: Callback): void {
   useEffect(() => {
     /**
      * @event mount 컴포넌트가 마운트될 때 실행되는 부분

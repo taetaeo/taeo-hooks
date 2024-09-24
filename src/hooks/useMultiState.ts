@@ -33,7 +33,7 @@ const reducer = <T>(state: T, action: ReducerActionType): T => {
  * @returns {ReturnType} 배열형태의 상태관리와 이벤트 핸들러, 삭제 핸들러를 반환한다.`
  */
 
-export default function useMultiState<T extends { [key: string]: unknown }>(initialState: T): UseMultiState<T> {
+export function useMultiState<T extends { [key: string]: unknown }>(initialState: T): UseMultiState<T> {
   // useReducer에서 제네릭 타입을 명확하게 전달하여 state의 타입을 유지
   const [state, dispatch] = useReducer(reducer, initialState);
 

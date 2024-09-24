@@ -2,7 +2,7 @@ import * as React from "react";
 
 export type UseStateWithCallback<T> = [T, (newState: T, callback?: (state: T) => void) => void];
 
-export default function useStateWithCallback<T>(initialValue: T): UseStateWithCallback<T> {
+export function useStateWithCallback<T>(initialValue: T): UseStateWithCallback<T> {
   const [state, setState] = React.useState<T>(initialValue);
   const callbackRef = React.useRef<((state: T) => void) | null>(null);
 

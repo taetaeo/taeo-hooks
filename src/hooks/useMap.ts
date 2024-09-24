@@ -65,7 +65,7 @@ type Return<K, V> = [Omit<Map<K, V>, "set" | "clear" | "delete">, Actions<K, V>]
  * // `map` 상태에 접근하고, `mapActions`를 사용하여 항목을 설정하거나 제거하거나 초기화할 수 있습니다.
  */
 
-export default function useMap<K, V>(initialState: MapOrEntries<K, V> = new Map()): Return<K, V> {
+export function useMap<K, V>(initialState: MapOrEntries<K, V> = new Map()): Return<K, V> {
   const [map, setMap] = React.useState(new Map(initialState));
 
   const actions: Actions<K, V> = {

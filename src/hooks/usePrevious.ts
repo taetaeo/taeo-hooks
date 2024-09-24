@@ -22,7 +22,7 @@ import { useEffect, useRef } from "react";
  * 
  */
 
-export default function usePrevious(value) {
+export function usePrevious(value) {
   // useRef를 사용하여 이전 값을 저장할 ref 객체를 생성합니다.
   const ref = useRef();
 

@@ -18,7 +18,7 @@ export type UseTabIndex = {
       <컴포넌트/>
     </TabIndex>
  */
-export default function useTabIndex(): UseTabIndex {
+export function useTabIndex(): UseTabIndex {
   const handleKeyDown = (event: KeyboardEvent) => {
     if (event.key === "Enter") {
       event.preventDefault();

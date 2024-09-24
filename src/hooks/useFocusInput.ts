@@ -17,7 +17,7 @@ interface UseFocusInputResult {
   focusNextInput: (currentInputName: string) => void;
 }
 
-export default function useFocusInput({ refs = {}, nameList = [] }: UseFocusInputProps): UseFocusInputResult {
+export function useFocusInput({ refs = {}, nameList = [] }: UseFocusInputProps): UseFocusInputResult {
   const focusNextInput = (currentInputName: string) => {
     const currentIndex = nameList.indexOf(currentInputName);
 

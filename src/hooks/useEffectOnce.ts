@@ -12,6 +12,6 @@ import type { EffectCallback } from "react";
  *   console.log('Hello World');
  * });
  */
-export default function useEffectOnce(effect: EffectCallback) {
+export function useEffectOnce(effect: EffectCallback) {
   useEffect(effect, []);
 }

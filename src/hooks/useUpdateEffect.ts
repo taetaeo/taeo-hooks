@@ -8,7 +8,7 @@ import { useEffect, useRef } from "react";
  * @param deps - 콜백을 실행할 조건으로 설정된 의존성 배열입니다.
  */
 
-export default function useUpdateEffect(callback: () => void, deps: DependencyList): void {
+export function useUpdateEffect(callback: () => void, deps: DependencyList): void {
   const ref = useRef<boolean>(false);
 
   useEffect(() => {

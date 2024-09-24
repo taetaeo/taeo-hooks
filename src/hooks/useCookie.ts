@@ -9,7 +9,7 @@ import Cookies from "js-cookie";
  */
 export type UseCookieReturnType = ReturnType<typeof useCookie>;
 
-export default function useCookie(cookieKey: string) {
+export function useCookie(cookieKey: string) {
   // 쿠키의 현재 값 보관을 위한 상태 변수
   const [cookie, setCookie] = useState<string | null>(() => Cookies.get(cookieKey) || null);
 

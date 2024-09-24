@@ -6,7 +6,7 @@ import { useEffect } from "react";
  * @param {number} x 이동시킬 X 축, 초갓값은 0
  * @param {number} y 이동시킬 y축, 초깃값은 0
  */
-export default function useScrollTop(x: number = 0, y: number = 0, callback?: () => void): void {
+export function useScrollTop(x: number = 0, y: number = 0, callback?: () => void): void {
   useEffect(() => {
     window.scrollTo(x, y);
     if (callback && typeof callback === "function") {

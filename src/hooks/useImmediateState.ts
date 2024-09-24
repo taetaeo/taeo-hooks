@@ -18,7 +18,7 @@ export type UseImmediateState<T> = [
   () => T // getImmediateState 함수
 ];
 
-export default function useImmediateState<T>(initialValue: T): UseImmediateState<T> {
+export function useImmediateState<T>(initialValue: T): UseImmediateState<T> {
   // 현즤 값에 대한 상태관리
   const [state, setState] = React.useState(initialValue);
 

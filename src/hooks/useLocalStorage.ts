@@ -24,7 +24,7 @@ const isServer = typeof window === "undefined";
  * @description options의 기능에 대한 설명
  * initialSave : 스토리지에 저장된 값이 없을 경우, 초기값을 저장할 것인지 말 것인지 type : boolean
  */
-export default function useLocalStorage<T>(key: string, initialValue: T | (() => T), options: Options = { initialSave: false }) {
+export function useLocalStorage<T>(key: string, initialValue: T | (() => T), options: Options = { initialSave: false }) {
   const [storedValue, setStoredValue] = useState<T>(initialValue);
 
   const isStorageEvent = (event: StorageEvent | CustomEvent): event is StorageEvent => {

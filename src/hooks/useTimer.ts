@@ -8,7 +8,7 @@ export type UseTimer = number;
  * @returns {number} - 현재 시간
  */
 
-export default function useTimer(initialTime: number): UseTimer {
+export function useTimer(initialTime: number): UseTimer {
   const [time, setTime] = useState(initialTime); // 현재 시간에 대한 상태관리
 
   useEffect(() => {

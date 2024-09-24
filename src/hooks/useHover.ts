@@ -13,7 +13,7 @@ export type UseHover = [
  *
  * @returns 요소를 추적하려는 ref 객체와 현재 요소가 호버 중인지 여부를 나타내는 boolean 상태를 포함한 튜플을 반환합니다.
  */
-export default function useHover() {
+export function useHover() {
   // 요소가 호버 중인지 여부를 저장하는 상태
   const [isHovering, setIsHovering] = useState<boolean>(false);
 

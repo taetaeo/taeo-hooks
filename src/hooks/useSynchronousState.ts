@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, useCallback } from 'react';
+import { useState, useRef, useEffect, useCallback } from "react";
 
 /**
  * 동기적으로 동작하는 상태관리
@@ -8,8 +8,8 @@ import { useState, useRef, useEffect, useCallback } from 'react';
 
 export type ReturnTypeUseSynchronousState<T> = [T, (newState: T, callback?: (state: T) => void) => void];
 
-export default function useSynchronousState<T>(initialValue: T): ReturnTypeUseSynchronousState<T> {
-  console.log('0', initialValue);
+export function useSynchronousState<T>(initialValue: T): ReturnTypeUseSynchronousState<T> {
+  console.log("0", initialValue);
 
   const [state, setState] = useState<T>(() => {
     return initialValue;
@@ -30,6 +30,6 @@ export default function useSynchronousState<T>(initialValue: T): ReturnTypeUseSy
     }
   }, [state]);
 
-  console.log('1', state);
+  console.log("1", state);
   return [state, setSynchronousState];
 }

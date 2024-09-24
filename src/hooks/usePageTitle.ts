@@ -9,7 +9,7 @@ import { useEffect } from "react";
  * @param {string} defaultTitle - 제목이 제공되지 않았을 때 사용할 기본 제목입니다.
  * @returns {Object} handleChangePageTitle 함수를 포함하는 객체입니다.
  */
-export default function usePageTitle(titleToTransform: string = "", defaultTitle: string = "My App") {
+export function usePageTitle(titleToTransform: string = "", defaultTitle: string = "My App") {
   /**
    * 페이지 제목을 변경하고 콘솔 어서션을 처리하는 함수입니다.
    * @param {string} title - 페이지 제목으로 설정할 문자열입니다.

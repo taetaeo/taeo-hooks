@@ -24,7 +24,7 @@ export interface UseCopyClipboard {
  * @returns {Object} - isCopy, handleCopy, error, resetError를 제공하는 객체
  * @documents https://taeo.gitbook.io/taeo/taeo-hooks/usecopyclipboard
  */
-export default function useCopyClipBoard(): UseCopyClipboard {
+export function useCopyClipBoard(): UseCopyClipboard {
   const [copiedText, setCopiedText] = useState<string | null>(null);
 
   const copy = useCallback(async (text) => {

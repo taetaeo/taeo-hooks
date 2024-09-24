@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import useUpdateEffect from "./useUpdateEffect";
+import { useState } from "react";
+import { useUpdateEffect } from "./useUpdateEffect";
 
 /**
  * 값에 대한 디바운스를 도와주는 훅
@@ -11,7 +11,7 @@ import useUpdateEffect from "./useUpdateEffect";
  * @example
  * const debouncedValue = useDebounce(keyword, 300)
  */
-export default function useDebounce<T>(value: T, delay?: number): T {
+export function useDebounce<T>(value: T, delay?: number): T {
   const [debouncedValue, setDebouncedValue] = useState<T>(value);
 
   useUpdateEffect(() => {

@@ -10,7 +10,7 @@ export type UseWindowResize = {
  * @returns 추적하여 현재 브라우저창의 크기를 나타내는 객체를 반환합니다.
  */
 
-export default function useWindowResize(): UseWindowResize {
+export function useWindowResize(): UseWindowResize {
   // 윈도우 크기 상태 및 '초기 값'
   const [windowSize, setWindowSize] = useState<UseWindowResize>({ width: window.innerWidth, height: window.innerHeight });
 

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import useUpdateEffect from "./useUpdateEffect";
+import { useUpdateEffect } from "./useUpdateEffect";
 
 /**
  * 이 훅은 주어진 미디어 쿼리에 대한 상태를 관리하는 커스텀 훅입니다.
@@ -7,7 +7,7 @@ import useUpdateEffect from "./useUpdateEffect";
  * @returns {boolean} - boolean 값을 반환합니다.
  *  - 'media' : 주어진 미디어 쿼리에 대한 매치 결과 (true 또는 false).
  */
-export default function useMediaQuery(query: string): boolean {
+export function useMediaQuery(query: string): boolean {
   const [media, setMedia] = useState<boolean>(() => {
     const mediaQuery = window.matchMedia(query);
     return mediaQuery.matches;
