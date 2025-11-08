@@ -1,2 +1,38 @@
-node_modules
-dist
+# Node modules
+node_modules/
+
+# 빌드 결과물
+dist/
+build/
+lib/
+esm/
+cjs/
+
+# 테스트 커버리지
+coverage/
+*.lcov
+coverage-final.json
+clover.xml
+
+# 로그 파일
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# OS / 에디터 관련
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# 환경 변수
+.env
+.env.local
+.env.*.local
+
+# 타입스크립트
+*.tsbuildinfo
+
+# 기타
+*.tgz
